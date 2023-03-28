@@ -1,0 +1,20 @@
+{
+  "name": "u.e.m.s.r-backend",
+  "version": "1.0.0",
+  "description": "ChatGPT para nuestra UEMSR",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Richard Jiménez - MasterPro",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.9",
+    "nodemon": "^2.0.22",
+    "openai": "^3.2.1"
+  }
+}
