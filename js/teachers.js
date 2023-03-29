@@ -1,5 +1,8 @@
-const fetch = require("node-fetch");
+// const fetch = require("node-fetch")
+import fetch from 'node-fetch'
+
 require('dotenv').config()
+
 fetch(process.env.url_api+"docentes?select=*", {
     method: "GET",
     headers: {
@@ -9,5 +12,15 @@ fetch(process.env.url_api+"docentes?select=*", {
     }
 })
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(data => console.log(data))
     .catch(err => console.log(err))
+
+const viewData = (data) => { 
+    console.log(data);
+    let body = '';
+    for (let i = 0; i < data.length; i++) {
+        body += `<h1>${data[i].name}</h1>`
+        console.log(data[i].name);
+    }
+    document.getElementById('data').innerHTML = body;
+}
