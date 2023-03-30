@@ -1,26 +1,23 @@
 // const fetch = require("node-fetch")
-import fetch from 'node-fetch'
 
-require('dotenv').config()
+// require('dotenv').config()
 
-fetch(process.env.url_api+"docentes?select=*", {
+fetch("https://yujlpvpwopbgtpigmuji.supabase.co/rest/v1/docentes?select=*", {
     method: "GET",
     headers: {
     Content: "application/json",
-    apikey:process.env.apikey,
-    Authorization:process.env.Authorization    
+    apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl1amxwdnB3b3BiZ3RwaWdtdWppIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk3NjQ4MjIsImV4cCI6MTk5NTM0MDgyMn0.pnPUvzoSKQVu8IDUGBAA-LxP_8Ke3MQFXmt4pusrf7c',
+    Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl1amxwdnB3b3BiZ3RwaWdtdWppIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk3NjQ4MjIsImV4cCI6MTk5NTM0MDgyMn0.pnPUvzoSKQVu8IDUGBAA-LxP_8Ke3MQFXmt4pusrf7c'   
     }
 })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data =>  viewData(data))
     .catch(err => console.log(err))
 
 const viewData = (data) => { 
-    console.log(data);
     let body = '';
     for (let i = 0; i < data.length; i++) {
-        body += `<h1>${data[i].name}</h1>`
-        console.log(data[i].name);
+        body += `<h1>${data[i].name}</h1> <h2>${data[i].rol}</h2>`
     }
-    document.getElementById('data').innerHTML = body;
+    document.getElementById('items').innerHTML = body;
 }
